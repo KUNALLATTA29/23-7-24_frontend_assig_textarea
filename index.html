@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Box</title>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    textarea{
+        width: 400px;
+        height: 200px;
+    }
+
+  
+  </style>
+</head>
+<body>
+  <div class="container">
+    <textarea name="" id="text">
+
+    </textarea>
+  </div>
+  <div>
+    <h3>Css Properties</h3>
+    <input type="text" id="col" placeholder="color">
+    <input type="text" id="bgcol" placeholder="background color">
+    <input type="number" id="num" placeholder="font size">
+  </div>
+  <div>
+    <textarea name="" id="result" disabled>
+
+    </textarea>
+    <h4 id="hh">total latters :</h4>
+  </div>
+    
+  <script>
+    document.getElementById("text").addEventListener('input',()=>{
+        let res = document.getElementById("result");
+        let t = document.getElementById("text").value;
+
+        res.value = t;
+        let len = t.toString().length;
+
+        document.getElementById("hh").innerHTML = `<h4> total latters: ${len} </h4>`;
+    })
+    document.getElementById("col").addEventListener('input', ()=>{
+        let color = document.getElementById("col").value;
+        document.getElementById("result").style.color = `${color}`
+    })
+    document.getElementById("num").addEventListener('input', ()=>{
+        let size = document.getElementById("num").value;
+        document.getElementById("result").style.fontSize = `${size}px`
+    })
+    document.getElementById("bgcol").addEventListener('input', ()=>{
+        let color = document.getElementById("bgcol").value;
+        document.getElementById("result").style.backgroundColor = `${color}`
+    })
+        
+
+  </script>
+</body>
+</html>
